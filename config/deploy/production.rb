@@ -59,3 +59,7 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+
+server "hugomoraga.ml", :app, :web, :db, :primary => true
+set :deploy_to, "/var/www/mblog"
