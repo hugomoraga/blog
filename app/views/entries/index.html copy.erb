@@ -1,0 +1,57 @@
+<div class="frame">
+<h1> Todas las entradas </h1>
+
+<div>
+<h2>Entradas en curso </h2>
+    <table class="tabla-post">
+        <thead class="tabla-post"> 
+            <th class="tabla-post" style="width: 180px">Fecha creacion</th>
+            <th class="tabla-post" style="width: 200px">Titulo</th>
+            <th class="tabla-post" style="width: 300px">Contenido</th>
+            <th class="tabla-post" style="width: 100px">Estado</th>
+            <th class="tabla-post">Acciones</th>
+        </thead class="tabla-post">
+        <% @entries_open.each do |entry| %>
+            <tbody class="tabla-post">
+                <td><%= entry.created_at %></td>
+                <td><%= entry.title %></td>
+                <td><%= entry.content %></td>
+                <td><%= entry.status %></td>
+                <td><%= link_to 'editar', edit_entries_path(entry) %> |
+                <%= link_to 'eliminar', delete_entries_path(entry), method: :delete, data: {confirm: 'estas seguro?'} %></td>
+            </tbody>
+        <% end %>
+    
+    </table>
+</div>
+
+<div>
+<h2>Entradas cerradas </h2>
+    <table class="tabla-post">
+        <thead class="tabla-post"> 
+            <th class="tabla-post" style="width: 180px">Fecha creacion</th>
+            <th class="tabla-post" style="width: 200px">Titulo</th>
+            <th class="tabla-post" style="width: 300px">Contenido</th>
+            <th class="tabla-post" style="width: 100px">Estado</th>
+            <th class="tabla-post">Acciones</th>
+
+        </thead class="tabla-post">
+        <% @entries_close.each do |entry| %>
+            <tbody class="tabla-post">
+                <td><%= entry.created_at %></td>
+                <td><%= entry.title %></td>
+                <td><%= entry.content %></td>
+                <td><%= entry.status %></td>
+                <td><%= link_to 'editar', edit_entries_path(entry) %> |
+                <%= link_to 'eliminar', delete_entries_path(entry), method: :delete, data: {confirm: 'estas seguro?'} %></td>
+            </tbody>
+        <% end %>
+    
+    </table>
+</div>
+
+</div>
+
+
+
+<%= link_to 'Nueva Entrada', new_entries_path %>

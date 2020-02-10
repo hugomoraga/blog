@@ -1,0 +1,24 @@
+<%= form_with(model: entry, local: true) do |f| %>
+    <div class="row">
+    <div class="row">
+        <div class="column"> <%= f.label :titulo %></div>
+        <div class="column"> <%= f.text_field :title %></div>
+    </div>
+
+    <div class="row">
+        <div class="column"><%= f.label :contenido %></div>
+        <div class="column"><%= f.text_area :content %>
+    </div>
+   
+    </div>
+    <div class="row">
+        <div class="column"><%= f.label :status %></div>
+        <div class="column"><%= f.select :status, options_for_select(['en curso', 'cerrada'])%></div>
+    </div>
+    </div>
+    <br>
+    <%= f.submit 'Guardar' %>
+
+<% end %>
+<br>
+
